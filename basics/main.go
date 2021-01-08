@@ -8,6 +8,7 @@ func main() {
 	// vars1()
 	// vars2()
 	print1To10()
+	print1To100()
 }
 
 func vars1() {
@@ -68,5 +69,14 @@ func print1To10() {
 	// Print even numbers from 0 to 10 inclusive.
 	for i := 0; i <= 10; i += 2 {
 		fmt.Println(i)
+
 	}
+}
+
+// Create function displaying odd numbers between 0 and 100
+func print1To100() {
+	for i := 1; i <= 100; i += 2 {
+		fmt.Println(i)
+	}
+
 }
