@@ -1,14 +1,27 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 )
 
 func main() {
 	// vars1()
 	// vars2()
-	print1To10()
-	print1To100()
+	// print1To10()
+	// printOdd1ToN(200)
+
+	// to := 10
+	// sum, err := sumOdd1toN(to)
+	// if err != nil {
+	// 	fmt.Println(err)
+	// 	return
+	// }
+	//
+	// fmt.Printf("sum of odd numbers between 1 and %d: %d\n", to, sum)
+
+	c := concatStrings("rafal", "bartek")
+	fmt.Println(c)
 }
 
 func vars1() {
@@ -20,7 +33,7 @@ func vars1() {
 
 	// Assign values.
 	i = 1
-	f = 1.2
+	f = 1.234567
 	b = 2
 	s = "bartek"
 
@@ -50,33 +63,39 @@ func vars2() {
 }
 
 func print1To10() {
-	// fmt.Println(1)
-	// fmt.Println(2)
-	// fmt.Println(3)
-	// fmt.Println(4)
-	// fmt.Println(5)
-	// fmt.Println(6)
-	// fmt.Println(7)
-	// fmt.Println(8)
-	// fmt.Println(9)
-	// fmt.Println(10)
-
 	// Print 1 to 10.
 	for i := 1; i <= 10; i++ {
 		fmt.Println(i)
 	}
+}
 
+func printEven1to10() {
 	// Print even numbers from 0 to 10 inclusive.
 	for i := 0; i <= 10; i += 2 {
 		fmt.Println(i)
-
 	}
 }
 
-// Create function displaying odd numbers between 0 and 100
-func print1To100() {
-	for i := 1; i <= 100; i += 2 {
+// printOdd1ToN prints odd numbers between 0 and 100.
+func printOdd1ToN(n int) {
+	for i := 1; i <= n; i += 2 {
 		fmt.Println(i)
 	}
+}
 
+// sumOdd1toN returns sum of odd numbers between 1 and n.
+func sumOdd1toN(n int) (int, error) {
+	if n < 1 {
+		return 0, errors.New("only numbers greater then 1 are allowed")
+	}
+
+	var sum int
+	for i := 1; i <= n; i += 2 {
+		sum += i // sum = sum + i
+	}
+	return sum, nil
+}
+
+func concatStrings(s1, s2 string) string {
+	return s1 + " - " + s2
 }
